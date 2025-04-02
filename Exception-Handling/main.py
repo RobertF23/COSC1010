@@ -1,17 +1,17 @@
 #
-# Name
-# Date
+# Robert Freitas
+# Dat04/02/25
 # Exception Handling Programming Project
 # COSC 1010
-#
-# Use comments liberally throughout the program. 
+ 
 
-# Calculate the average of a list of numbers
+# Calculate the average of a list of numbers 
 def main():
+
+# Implement Try statement to run block of code below.
     try:
         numbersFile = open( "numbers.txt", "r" )
-
-# Declare Variables 
+# Declare Variables        
         total = 0
         numberOfLines = 0
         line = numbersFile.readline()
@@ -22,11 +22,19 @@ def main():
             total += int( line )
             line = numbersFile.readline()
 # Calculate the average.
-except
-    average = total / numberOfLines
-
-# Use print function to show average.
-    print( "The average is", average )
+        average = total / numberOfLines
+# Implement Exception for IOError. If error occurs print statement below will execute.
+    except IOError as error:
+        print( "An IOError occured:", error )
+# Implement Exception for ValueError. If error occurs print statement below will execute.
+    except ValueError as error:
+        print( "A ValueError occured:", error)
+# Apply else statement to print the average if above exceptions do not occur.
+    else:
+        print( "The average is", average )
+# Final print statement to end program.
+    finally:
+        print( "End of program" )
 
 # Call main function.
-main()   
+main() 
