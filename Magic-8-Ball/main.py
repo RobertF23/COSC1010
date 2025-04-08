@@ -9,63 +9,24 @@
 # Import Random module.
 import random
 
-# Declare name variable
-name = "Robert"
+# Variable
+repeat = 'y'
 
-# Declare variable for a "Yes" or "No" question to ask the Magic 8 ball.
-question = "Will I ever be rich?"
+# Open a file
+infile = open('8_ball_responses.txt', 'r')
 
-# Declare answer variable (holds answer for Magic 8 ball)
-answer = ""
+# Read the file's contents.
+ball_responses = infile.readlines()
 
-# Declare variable to store randomly generated value, then assign it randint function.
-random_number = random.randint(1,12)
+# Close the file.
+infile.close()
 
-# Implement if statement so that if random number is equal to 1 the answer will be "Yes, of course!"
-if random_number == 1:
-    answer = "Yes, of course!"
+while repeat == 'y':
+    question = input('what is your question: ')
+    # Print the random response.
+    response = random.choice(ball_responses)
+    print(response)    
 
-# Use elif statement so that if the random number is equal to 2 the answer will be "Without a doubt, yes."
-elif random_number == 2:
-    answer = "Without a doubt, yes."
-
-# Continue using elif statements to assign remaining answers to values 3 through 12.
-elif random_number == 3:
-    answer = "You can count on it."
-
-elif random_number == 4:
-    answer = "For sure!"
-
-elif random_number == 5:
-    answer = "Ask me later."
-
-elif random_number == 6:
-    answer = "I'm not sure."
-
-elif random_number == 7:
-    answer = "I can't tell you right now."
-
-elif random_number == 8:
-    answer = "I will tell you after my nap."
-
-elif random_number == 9:
-    answer = "No way!"  
-   
-elif random_number == 10:
-    answer = "I don't think so."
-
-elif random_number == 11:
-    answer = "Without a doubt, no."
-
-elif random_number == 12:
-    answer = "The answer is clearly NO."  
-
-# Use else statement to assign the answer to the the phrase "Error" if the number is accidentally outside of the range of answers.
-else:
-    answer = "Error"
-
-# Use print statement to output users name and question.
-print(name + " asks: " + question)
-
-# Add another print statement to output Magic 8-Ball's answer.
-print("Magic 8-Ball's answer: " + answer)
+    # Want to do this again?
+    print('Do you want to ask another question?')
+    repeat = input('y = yes, anything else = no: ')
